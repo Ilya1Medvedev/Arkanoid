@@ -13,6 +13,7 @@ public class Bricks {
             }
         }
 
+        //set bricks size
         brickWidth = 440 / col;
         brickHeight = 100 / row;
     }
@@ -26,9 +27,11 @@ public class Bricks {
             for (int j = 0; j < map[0].length; j++) {
                 if (map[i][j] > 0) {
 
+                    //draw white bricks
                     g.setColor(Color.WHITE);
                     g.fillRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
 
+                    //draw grid
                     g.setColor(Color.BLACK);
                     g.drawRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
                 }
