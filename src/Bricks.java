@@ -1,21 +1,25 @@
 import java.awt.*;
 
 public class Bricks {
+
+    private final int ALL_BRICKS_WIDTH = 440;
+    private final int ALL_BRICKS_LENGTH = 100;
+
     public int map[][];
     public int brickWidth;
-    public int brickHeight;
+    public int brickLength;
 
     public Bricks(int row, int col) {
         map = new int[row][col];
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                map[i][j] = 1;
+        for (int[] map1 : map) {
+            for (int j = 0; j < col; j++) {
+                map1[j] = 1;
             }
         }
 
         //set bricks size
-        brickWidth = 440 / col;
-        brickHeight = 100 / row;
+        brickWidth = ALL_BRICKS_WIDTH / col;
+        brickLength = ALL_BRICKS_LENGTH / row;
     }
 
     public int[][] getMap() {
@@ -29,11 +33,11 @@ public class Bricks {
 
                     //draw white bricks
                     g.setColor(Color.WHITE);
-                    g.fillRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
+                    g.fillRect(j * brickWidth + Controller.BRICK_X, i * brickLength + Controller.BRICK_Y, brickWidth, brickLength);
 
                     //draw grid
                     g.setColor(Color.BLACK);
-                    g.drawRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
+                    g.drawRect(j * brickWidth + Controller.BRICK_X, i * brickLength + Controller.BRICK_Y, brickWidth, brickLength);
                 }
             }
         }
